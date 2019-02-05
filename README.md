@@ -1,1 +1,2 @@
-# cs325-game-prototypes
+# GMU CS325 Game Prototypes
+By: Adam Rice
