@@ -167,7 +167,7 @@ function simonSequence () {
 
 function setUp() {
 
-    var thisSquare = simon.getIndex(selected);
+    thisSquare = simon.getIndex(selected);
     for (var i = 0; i < sequenceCount; i++)
     {
         thisSquare = game.rnd.integerInRange(0,5);
