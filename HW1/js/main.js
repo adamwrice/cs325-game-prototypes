@@ -30,6 +30,7 @@ var litSquare;
 var winner;
 var loser;
 var intro;
+var doesHe;
 
 function create() {
 
@@ -122,35 +123,42 @@ function update() {
 }
 
 function playerSequence(selected) {
-
-    correctSquare = sequenceList[userCount];
-    userCount++;
-    thisSquare = simon.getIndex(selected);
-
-    if (thisSquare == correctSquare)
+    doesHe = Math.random()*5;
+    if (doesHe == 5)
     {
-        if (userCount == N)
-        {
-            if (N == sequenceCount)
-            {
-                winner = true;
-                setTimeout(function(){restart();}, 3000);
-            }
-            else
-            {
-                userCount = 0;
-                currentCount = 0;
-                N++;
-                simonSez = true;
-            }
+        setTimeout(function(){}, 5000);
+        winner = true;
+        setTimeout(function(){restart();},5000);
+    }
+    else {
+        correctSquare = sequenceList[userCount];
+        userCount++;
+        thisSquare = simon.getIndex(selected);
+
+       if (thisSquare == correctSquare)
+     {
+           if (userCount == N)
+          {
+             if (N == sequenceCount)
+                {
+                 winner = true;
+                 setTimeout(function(){restart();}, 3000);
+             }
+             else
+             {
+                    userCount = 0;
+                    currentCount = 0;
+                    N++;
+                    simonSez = true;
+             }
+         }
         }
+        else
+        {
+           loser = true;
+           setTimeout(function(){restart();}, 3000);
+     }
     }
-    else
-    {
-        loser = true;
-        setTimeout(function(){restart();}, 3000);
-    }
-
 }
 
 function simonSequence () {
