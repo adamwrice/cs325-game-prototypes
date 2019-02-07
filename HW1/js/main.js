@@ -1,5 +1,3 @@
-"use strict";
-
 window.onload = function() {
     // You can copy-and-paste the code from any of the examples at http://examples.phaser.io here.
     // You will need to change the fourth parameter to "new Phaser.Game()" from
