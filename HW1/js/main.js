@@ -125,10 +125,9 @@ function update() {
 }
 
 function playerSequence(selected) { 
-    doesHe = Math.floor((Math.random()*8)+1); //stop borrowed code
+    //stop borrowed code
     if (doesHe == 5)
     {
-        game.debug.text('Do this', 360, 96, 'rgb(255,0,0)');
         setTimeout(function(){}, 5000);
         if (thisSquare == correctSquare || thisSquare != correctSquare)
         {
@@ -179,6 +178,7 @@ function simonSequence () { //resume borrowed code
     simon.getAt(litSquare).alpha = 1;
     timeCheck = game.time.now;
     currentCount++;
+    doesHe = Math.floor((Math.random()*8)+1); //not borrowed
 
 }
 
@@ -227,9 +227,13 @@ function render() {
         {
             game.debug.text('Simon Says...', 360, 96, 'rgb(255,0,0)');
         }
-        else
+        else if (doesHe != 5) //not borrowed
         {
             game.debug.text('Your Turn', 360, 96, 'rgb(0,255,0)');
+        }
+        else  //not borrowed
+        {
+            game.debug.text('Do this', 360, 96, 'rgb(255,0,0)');
         }
     }
     else
