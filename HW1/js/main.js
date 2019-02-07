@@ -7,8 +7,10 @@
     // You will need to change the paths you pass to "game.load.image()" or any other
     // loading functions to reflect where you are putting the assets.
     // All loading functions will typically all be found inside "preload()".
-    
-   // mods by Patrick OReilly
+
+
+//Begin borrowed code
+// mods by Patrick OReilly
 // Twitter: @pato_reilly Web: http://patricko.byethost9.com
 
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'HW1', { preload: preload, create: create, update: update, render: render });
@@ -30,7 +32,7 @@ var litSquare;
 var winner;
 var loser;
 var intro;
-var doesHe;
+var doesHe; //added in
 
 function create() {
 
@@ -122,13 +124,23 @@ function update() {
     }
 }
 
-function playerSequence(selected) {
-    doesHe = Math.random()*5;
+function playerSequence(selected) { 
+    doesHe = Math.random()*5; //stop borrowed code
     if (doesHe == 5)
     {
+        game.debug.text('Do this', 360, 96, 'rgb(255,0,0)');
         setTimeout(function(){}, 5000);
+        if (thisSquare == correctSquare || thisSquare != correctSquare)
+        {
+            loser = true;
+            alert("I didn't say Simon Sez!!!");
+            setTimeout(function(){restart();}, 3000);
+        }
+        else 
+        {
         winner = true;
         setTimeout(function(){restart();},5000);
+        }
     }
     else {
         correctSquare = sequenceList[userCount];
@@ -161,7 +173,7 @@ function playerSequence(selected) {
     }
 }
 
-function simonSequence () {
+function simonSequence () { //resume borrowed code
 
     simonSez = true;
     litSquare = sequenceList[currentCount];
@@ -235,5 +247,5 @@ function render() {
         game.debug.text('You Lose!', 360, 32, 'rgb(0,0,255)');
     }
 
-}
+} //end borrowed code
 //};
