@@ -125,7 +125,7 @@ function update() {
 }
 
 function playerSequence(selected) { 
-    doesHe = Math.random()*5; //stop borrowed code
+    doesHe = Math.floor((Math.random()*8)+1); //stop borrowed code
     if (doesHe == 5)
     {
         game.debug.text('Do this', 360, 96, 'rgb(255,0,0)');
@@ -133,13 +133,12 @@ function playerSequence(selected) {
         if (thisSquare == correctSquare || thisSquare != correctSquare)
         {
             loser = true;
-            alert("I didn't say Simon Sez!!!");
+            alert("I didn't say Simon Says!!!");
             setTimeout(function(){restart();}, 3000);
         }
         else 
         {
-        winner = true;
-        setTimeout(function(){restart();},5000);
+        setTimeout(function(){simonSequence();},3000);
         }
     }
     else {
@@ -226,7 +225,7 @@ function render() {
     {
         if (simonSez)
         {
-            game.debug.text('Simon Sez', 360, 96, 'rgb(255,0,0)');
+            game.debug.text('Simon Says...', 360, 96, 'rgb(255,0,0)');
         }
         else
         {
