@@ -172,13 +172,21 @@ function playerSequence(selected) {
 }
 
 function simonSequence () { //resume borrowed code
-
-    simonSez = true;
+    
+    doesHe = Math.floor((Math.random()*8)+1); //not borrowed
+    if (doesHe == 5)
+    {
+        simonSez = false;
+    }
+    else
+    {
+        simonSez = true;
+    }
     litSquare = sequenceList[currentCount];
     simon.getAt(litSquare).alpha = 1;
     timeCheck = game.time.now;
     currentCount++;
-    doesHe = Math.floor((Math.random()*8)+1); //not borrowed
+   
 
 }
 
