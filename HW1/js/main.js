@@ -231,13 +231,13 @@ function render() {
 
     if (!intro)
     {
-        if (simonSez && doesHe == 5) //not borrowed
-        {
-            game.debug.text('Do this', 360, 96, 'rgb(255,0,0)');
+        if (simonSez) //not borrowed
+        { 
+           game.debug.text('Simon Says...', 360, 96, 'rgb(255,0,0)');
         }
-        else if (simonSez && doesHe != 5) //not borrowed
+        else if (simonSez && doesHe == 5) //not borrowed
         {
-            game.debug.text('Simon Says...', 360, 96, 'rgb(255,0,0)');
+           game.debug.text('Do this', 360, 96, 'rgb(255,0,0)');
         }
         else  //not borrowed
         {
