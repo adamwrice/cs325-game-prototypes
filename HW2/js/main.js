@@ -25,7 +25,6 @@ window.onload = function() {
     }
     
     var layer1;
-    var square;
     var triangle;
     var music;
     var map;
@@ -79,14 +78,13 @@ window.onload = function() {
         jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         
         music = game.add.audio('music');
-        //music.loopFull(0.6);
+        music.play();
         
         triangle = game.add.sprite( game.world.centerX, game.world.centerY, 'triangle.png' );
         triangle.anchor.setTo(0.5, 0.5);
         
         // Turn on the arcade physics engine for this sprite.
-        game.physics.enable( square, Phaser.Physics.ARCADE );
-        game.physics.enable( triangle, Phaser.Physics.ARCADE );
+        //game.physics.enable(triangle, Phaser.Physics.ARCADE );
         // Make it bounce off of the world bounds.
         triangle.body.collideWorldBounds = true;
         
