@@ -39,24 +39,6 @@ window.onload = function() {
     var bg;
     
     function create() {
-        music = game.add.audio('music');
-        //music.loopFull(0.6);
-        
-        triangle = game.add.sprite( game.world.centerX, game.world.centerY, 'triangle.png' );
-        triangle.anchor.setTo(0.5, 0.5);
-        
-        // Turn on the arcade physics engine for this sprite.
-        game.physics.enable( square, Phaser.Physics.ARCADE );
-        game.physics.enable( triangle, Phaser.Physics.ARCADE );
-        // Make it bounce off of the world bounds.
-        triangle.body.collideWorldBounds = true;
-        
-        var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
-        //var text = game.add.text( 400, 15, "Build something amazing.", style );
-        //text.fixedToCamera = true;
-        //text.anchor.setTo( 0.5, 0.0 );
-        
-      
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         game.stage.backgroundColor = '#000000';
@@ -95,6 +77,23 @@ window.onload = function() {
 
         cursors = game.input.keyboard.createCursorKeys();
         jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        
+        music = game.add.audio('music');
+        //music.loopFull(0.6);
+        
+        triangle = game.add.sprite( game.world.centerX, game.world.centerY, 'triangle.png' );
+        triangle.anchor.setTo(0.5, 0.5);
+        
+        // Turn on the arcade physics engine for this sprite.
+        game.physics.enable( square, Phaser.Physics.ARCADE );
+        game.physics.enable( triangle, Phaser.Physics.ARCADE );
+        // Make it bounce off of the world bounds.
+        triangle.body.collideWorldBounds = true;
+        
+        var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
+        //var text = game.add.text( 400, 15, "Build something amazing.", style );
+        //text.fixedToCamera = true;
+        //text.anchor.setTo( 0.5, 0.0 );
         
     }
     
