@@ -90,7 +90,7 @@ window.onload = function() {
         jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         jumpButton2 = game.input.keyboard.addKey(Phaser.Keyboard.w);
         music = game.add.audio('music');
-        music.play();
+        music.resume();
         
         //triangle = game.add.sprite( game.world.centerX, game.world.centerY, 'triangle.png' );
         //triangle.anchor.setTo(0.5, 0.5);
@@ -101,9 +101,9 @@ window.onload = function() {
         //triangle.body.collideWorldBounds = true;
         
         var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
-        //var text = game.add.text( 400, 15, "Build something amazing.", style );
-        //text.fixedToCamera = true;
-        //text.anchor.setTo( 0.5, 0.0 );
+        var text = game.add.text( 400, 15, "Find the triangle.", style );
+        text.fixedToCamera = true;
+        text.anchor.setTo( 0.5, 0.0 );
         
     }
     
@@ -137,11 +137,11 @@ window.onload = function() {
           player2.body.velocity.x = -150;
 
           if (facing != 'left')
-         {
+          {
                player2.animations.play('left');
                facing = 'left';
-            }
-      }
+          }
+        }
         else if (cursors.d.isDown)
         {
             player2.body.velocity.x = 150;
