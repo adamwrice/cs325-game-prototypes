@@ -93,7 +93,7 @@ window.onload = function() {
         music = game.add.audio('music');
         music.loop = true;
         music.play();
-        triangle = game.add.sprite( 0.2, 0.2, 'triangle');
+        triangle = game.add.sprite( 10, 600, 'triangle');
         triangle.anchor.setTo(0.7, 0.7);
         
         // Turn on the arcade physics engine for this sprite.
