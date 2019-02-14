@@ -7,8 +7,9 @@ window.onload = function() {
     var game = new Phaser.Game( 1600, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
-        // Load an image and call it 'logo'.
-        game.load.image( 'logo', 'assets/phaser.png' );
+        // Load an image
+        game.load.image( 'square', 'assets/square.png' );
+        game.load.image( 'triangle', 'assets/triangle.png' );
         // load a tilemap and call it 'map'.
         // from .json file
         game.load.tilemap('map', 'assets/tilemap_example.json', null, Phaser.Tilemap.TILED_JSON);
