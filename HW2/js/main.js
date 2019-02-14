@@ -65,7 +65,7 @@ window.onload = function() {
 
         game.physics.arcade.gravity.y = 250;
 
-        player = game.add.sprite(32, 32, 'square');
+        player = game.add.sprite(20, 20, 'square');
         game.physics.enable(player, Phaser.Physics.ARCADE);
 
         player.body.bounce.y = 0.2;
@@ -93,7 +93,7 @@ window.onload = function() {
         music = game.add.audio('music');
         music.loop = true;
         music.play();
-        triangle = game.add.sprite( game.world.centerX, game.world.centerY, 'triangle.png' );
+        triangle = game.add.sprite( 0.2, 0.2, 'triangle');
         triangle.anchor.setTo(0.7, 0.7);
         
         // Turn on the arcade physics engine for this sprite.
@@ -126,7 +126,7 @@ window.onload = function() {
         if (jumpButton.isDown && player.body.onFloor() && game.time.now > jumpTimer)
         {
             player.body.velocity.y = -250;
-            jumpTimer = game.time.now + 750;
+            jumpTimer = game.time.now + 500;
         }
         
         game.physics.arcade.collide(player2, layer);
@@ -175,7 +175,7 @@ window.onload = function() {
         if (jumpButton2.isDown && player2.body.onFloor() && game.time.now > jumpTimer2)
         {
             player2.body.velocity.y = -250;
-            jumpTimer2 = game.time.now + 750;
+            jumpTimer2 = game.time.now + 500;
         }
  }
 function render () {
