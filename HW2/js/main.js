@@ -1,87 +1,83 @@
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'HW2', { preload: preload, create: create, update: update, render: render });
-
-function preload() {
-
-    game.load.image('tiles', 'assets/tilemaps/super_mario.png');
-    game.load.image('player', 'assets/phaser-dude.png');
-
-}
-
-var map;
-var tileset;
-var layer;
-var p;
-var cursors;
-
-function create() {
-
-    game.physics.startSystem(Phaser.Physics.ARCADE);
-
-    game.stage.backgroundColor = '#787878';
-
-    //map = game.add.tilemap('mario');
-
-    //map.addTilesetImage('SuperMarioBros-World1-1', 'tiles');
-
-    //  14 = ? block
-    // map.setCollisionBetween(14, 15);
-
-    map.setCollisionBetween(15, 16);
-    map.setCollisionBetween(20, 25);
-    map.setCollisionBetween(27, 29);
-    map.setCollision(40);
+window.onload = function() {
+    // You might want to start with a template that uses GameStates:
+    //     https://github.com/photonstorm/phaser/tree/v2.6.2/resources/Project%20Templates/Basic
     
-    //layer = map.createLayer('World1');
-
-    //  Un-comment this on to see the collision tiles
-    // layer.debug = true;
-
-    //layer.resizeWorld();
-
-    p = game.add.sprite(32, 32, 'player');
-
-    game.physics.enable(p);
-
-    game.physics.arcade.gravity.y = 250;
-
-    p.body.bounce.y = 0.2;
-    p.body.linearDamping = 1;
-    p.body.collideWorldBounds = true;
-
-    game.camera.follow(p);
-
-    cursors = game.input.keyboard.createCursorKeys();
-
-}
-
-function update() {
-
-    game.physics.arcade.collide(p, layer);
-
-    p.body.velocity.x = 0;
-
-    if (cursors.up.isDown)
-    {
-        if (p.body.onFloor())
-        {
-            p.body.velocity.y = -200;
-        }
+    // You can copy-and-paste the code from any of the examples at http://examples.phaser.io here.
+    // You will need to change the fourth parameter to "new Phaser.Game()" from
+    // 'phaser-example' to 'game', which is the id of the HTML element where we
+    // want the game to go.
+    // The assets (and code) can be found at: https://github.com/photonstorm/phaser/tree/master/examples/assets
+    // You will need to change the paths you pass to "game.load.image()" or any other
+    // loading functions to reflect where you are putting the assets.
+    // All loading functions will typically all be found inside "preload()".
+    
+    "use strict";
+    
+    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+    
+    function preload() {
+        // Load an image and call it 'logo'.
+        game.load.image( 'logo', 'assets/phaser.png' );
+        // load a tilemap and call it 'map'.
+        // from .json file
+        game.load.tilemap('map', 'assets/tilemap_example.json', null, Phaser.Tilemap.TILED_JSON);
+        // alternatively, from .csv file
+        //game.load.tilemap('map', 'assets/tilemap_example.csv', null, Phaser.Tilemap.CSV);
+        
+        //load tiles for map
+        game.load.image('tiles', 'assets/tiles.png');
     }
-
-    if (cursors.left.isDown)
-    {
-        p.body.velocity.x = -150;
+    
+    var map;
+    var layer1;
+    var bouncy;
+    
+    function create() {
+        // Create the map. 
+        map = game.add.tilemap('map');
+        // for csv files specify the tile size.
+        //map = game.add.tilemap('map', 32, 32);
+        
+        //add tiles
+        map.addTilesetImage('tiles');
+        
+        // Create a layer from the map
+        //using the layer name given in the .json file
+        layer1 = map.createLayer('Tile Layer 1');
+        //for csv files
+        //layer1 = map.createLayer(0);
+        
+        //  Resize the world
+        layer1.resizeWorld();
+        
+        // Create a sprite at the center of the screen using the 'logo' image.
+        bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'logo' );
+        // Anchor the sprite at its center, as opposed to its top-left corner.
+        // so it will be truly centered.
+        bouncy.anchor.setTo( 0.5, 0.5 );
+        
+        // Turn on the arcade physics engine for this sprite.
+        game.physics.enable( bouncy, Phaser.Physics.ARCADE );
+        // Make it bounce off of the world bounds.
+        bouncy.body.collideWorldBounds = true;
+        
+        // Add some text using a CSS style.
+        // Center it in X, and position its top 15 pixels from the top of the world.
+        var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
+        var text = game.add.text( 400, 15, "Build something amazing.", style );
+        text.fixedToCamera = true;
+        text.anchor.setTo( 0.5, 0.0 );
+        
+        game.camera.follow(bouncy);
+        
     }
-    else if (cursors.right.isDown)
-    {
-        p.body.velocity.x = 150;
+    
+    function update() {
+        // Accelerate the 'logo' sprite towards the cursor,
+        // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
+        // in X or Y.
+        // This function returns the rotation angle that makes it visually match its
+        // new trajectory.
+        bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, this.game.input.activePointer, 500, 500, 500 );
     }
-
-}
-
-function render() {
-
-    // game.debug.body(p);
-    game.debug.bodyInfo(p, 32, 320);
-
-}
+};
