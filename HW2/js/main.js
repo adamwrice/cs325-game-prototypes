@@ -19,9 +19,9 @@ function create() {
 
     game.stage.backgroundColor = '#787878';
 
-    map = game.add.tilemap('mario');
+    //map = game.add.tilemap('mario');
 
-    map.addTilesetImage('SuperMarioBros-World1-1', 'tiles');
+    //map.addTilesetImage('SuperMarioBros-World1-1', 'tiles');
 
     //  14 = ? block
     // map.setCollisionBetween(14, 15);
@@ -31,12 +31,12 @@ function create() {
     map.setCollisionBetween(27, 29);
     map.setCollision(40);
     
-    layer = map.createLayer('World1');
+    //layer = map.createLayer('World1');
 
     //  Un-comment this on to see the collision tiles
     // layer.debug = true;
 
-    layer.resizeWorld();
+    //layer.resizeWorld();
 
     p = game.add.sprite(32, 32, 'player');
 
