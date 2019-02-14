@@ -38,6 +38,7 @@ window.onload = function() {
     var jumpButton;
     var jumpButton2;
     var bg;
+    var keys;
     
     function create() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -87,8 +88,12 @@ window.onload = function() {
         
 
         cursors = game.input.keyboard.createCursorKeys();
+        cursors = game.input.keyboard.addKey(Phaser.Keyboard.W);
+        cursors = game.input.keyboard.addKey(Phaser.Keyboard.A);
+        cursors = game.input.keyboard.addKey(Phaser.Keyboard.S);
+        cursors = game.input.keyboard.addKey(Phaser.Keyboard.D);
         jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        jumpButton2 = game.input.keyboard.addKey(Phaser.Keyboard.w);
+        jumpButton2 = game.input.keyboard.addKey(Phaser.Keyboard.W);
         music = game.add.audio('music');
         music.resume();
         
@@ -132,7 +137,7 @@ window.onload = function() {
 
         player2.body.velocity.x = 0;
 
-        if (cursors.a.isDown)
+        if (cursors.A.isDown)
         {
           player2.body.velocity.x = -150;
 
@@ -142,7 +147,7 @@ window.onload = function() {
                facing = 'left';
           }
         }
-        else if (cursors.d.isDown)
+        else if (cursors.D.isDown)
         {
             player2.body.velocity.x = 150;
 
