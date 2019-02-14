@@ -110,7 +110,7 @@ window.onload = function() {
     
     function update() {
         game.physics.arcade.collide(player, layer);
-
+        music.resume();
         player.body.velocity.x = 0;
 
         if (cursors.left.isDown)
