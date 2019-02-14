@@ -13,7 +13,7 @@ window.onload = function() {
         //game.load.tilemap('map', 'assets/tilemap_example.csv', null, Phaser.Tilemap.CSV);
         
         //load tiles for map
-        game.load.audio('music', 'assets/Kai_Engel_-08_-_November.mp3');
+        game.load.audio('music', 'assets/Kai_Engel_-_08_-_November.mp3');
         
         game.load.tilemap('level1', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image('tiles-1', 'assets/tiles-1.png');
@@ -40,7 +40,7 @@ window.onload = function() {
     
     function create() {
         music = game.add.audio('music');
-        music.loopFull(0.6);
+        //music.loopFull(0.6);
         
         triangle = game.add.sprite( game.world.centerX, game.world.centerY, 'triangle.png' );
         triangle.anchor.setTo(0.5, 0.5);
