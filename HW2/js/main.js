@@ -31,6 +31,7 @@ window.onload = function() {
     var layer;
     var player;
     var player2;
+    var triangle;
     var facing = 'left';
     var jumpTimer = 0;
     var jumpTimer2 = 0;
@@ -71,10 +72,6 @@ window.onload = function() {
         player.body.collideWorldBounds = true;
         player.body.setSize(20, 32, 5, 16);
 
-        player.animations.add('left', [0, 1, 2, 3], 10, true);
-        player.animations.add('turn', [4], 20, true);
-        player.animations.add('right', [5, 6, 7, 8], 10, true);
-
         player2 = game.add.sprite(32, 32, 'dude');
         game.physics.enable(player2, Phaser.Physics.ARCADE);
 
@@ -94,9 +91,9 @@ window.onload = function() {
         jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         jumpButton2 = game.input.keyboard.addKey(Phaser.Keyboard.W);
         music = game.add.audio('music');
-        
-        //triangle = game.add.sprite( game.world.centerX, game.world.centerY, 'triangle.png' );
-        //triangle.anchor.setTo(0.5, 0.5);
+        music.resume();
+        triangle = game.add.sprite( game.world.centerX, game.world.centerY, 'triangle.png' );
+        triangle.anchor.setTo(0.7, 0.7);
         
         // Turn on the arcade physics engine for this sprite.
         //game.physics.enable(triangle, Phaser.Physics.ARCADE );
@@ -122,7 +119,6 @@ window.onload = function() {
         else if (cursors.right.isDown)
         {
             player.body.velocity.x = 150;
-            music.resume();
         }
         
     
@@ -136,7 +132,7 @@ window.onload = function() {
 
         player2.body.velocity.x = 0;
 
-        if (keyLeft.A.isDown)
+        if (keyLeft.isDown)
         {
           player2.body.velocity.x = -150;
 
@@ -146,7 +142,7 @@ window.onload = function() {
                facing = 'left';
           }
         }
-        else if (keyRight.D.isDown)
+        else if (keyRight.isDown)
         {
             player2.body.velocity.x = 150;
 
