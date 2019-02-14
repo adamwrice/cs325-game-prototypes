@@ -91,7 +91,8 @@ window.onload = function() {
         jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         jumpButton2 = game.input.keyboard.addKey(Phaser.Keyboard.W);
         music = game.add.audio('music');
-        music.resume();
+        music.loop = true;
+        music.play();
         triangle = game.add.sprite( game.world.centerX, game.world.centerY, 'triangle.png' );
         triangle.anchor.setTo(0.7, 0.7);
         
