@@ -92,7 +92,6 @@ window.onload = function() {
         jumpButton2 = game.input.keyboard.addKey(Phaser.Keyboard.W);
         music = game.add.audio('music');
         music.loop = true;
-        music.play();
         triangle = game.add.sprite( 50, 800, 'triangle');
         triangle.anchor.setTo(0.7, 0.7);
         
@@ -110,7 +109,7 @@ window.onload = function() {
     
     function update() {
         game.physics.arcade.collide(player, layer);
-        music.resume();
+        music.play();
         player.body.velocity.x = 0;
 
         if (cursors.left.isDown)
