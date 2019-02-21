@@ -16,7 +16,7 @@ GameStates.makeGame = function( game, shared ) {
     
     return {
     
-    var timeCheck = 0;
+    var timeCheck = 0;  //borrowed code below
         var flipFlag = false;
 
         var startList = new Array();
