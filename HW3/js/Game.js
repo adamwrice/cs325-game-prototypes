@@ -15,8 +15,9 @@ GameStates.makeGame = function( game, shared ) {
     }
     
     return {
-    
-    var timeCheck = 0;  //borrowed code below
+
+        
+        var timeCheck = 0; //borrowed code below
         var flipFlag = false;
 
         var startList = new Array();
@@ -252,5 +253,5 @@ GameStates.makeGame = function( game, shared ) {
             game.debug.text('Tile Position: ' + currentTilePosition, 620, 144, 'rgb(255,0,0)');
             game.debug.text('Hidden Tile: ' + getHiddenTile(), 620, 176, 'rgb(255,0,0)');
         }
-    };
+    }
 };
