@@ -1,5 +1,7 @@
 "use strict";
 
+var GameStates = {};
+
 window.onload = function() {
 
 	//	Create your Phaser game and inject it into the 'game' div.
