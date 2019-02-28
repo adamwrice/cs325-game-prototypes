@@ -47,9 +47,9 @@ window.onload = function() {
 
     var timer;
 
-    var elapsedTime = 63.0;
+    var elapsedTime = 60.0;
 
-    var elapsedMax = 55;
+    var elapsedMax = 50;
 
     var plane;
 
