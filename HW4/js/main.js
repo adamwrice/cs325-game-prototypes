@@ -14,9 +14,7 @@ window.onload = function() {
     
 
     function preload() {
-        // Load an image and call it 'logo'.
-        
-        
+
         game.load.image('ground', 'assets/ground.png');
         
         game.load.spritesheet('plane', 'assets/plane.png', 21,24, 19);
