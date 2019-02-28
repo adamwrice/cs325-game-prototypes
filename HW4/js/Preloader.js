@@ -27,7 +27,20 @@ GameStates.makePreloader = function( game ) {
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
             game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
             //	+ lots of other required assets here
-            game.load.image( 'logo', 'assets/phaser.png' );
+            game.load.image('ground', 'assets/ground.png');
+        
+       	    game.load.spritesheet('plane', 'assets/plane.png', 21,24, 19);
+
+        	game.load.image('missile', 'assets/missile.png');
+
+       		game.load.spritesheet('explosion', 'assets/Explosion.png', 128, 128, 4);
+	
+        	game.load.image('smoke', 'assets/smoke.png');
+
+        	game.load.image('smallSmoke', 'assets/smallSmoke.png');
+
+        	game.load.audio('explosion', 'assets/explosion13.wav');    
+        	game.load.audio('gameOver', 'assets/gameOver.wav');
         },
     
         create: function () {
