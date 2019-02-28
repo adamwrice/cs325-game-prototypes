@@ -11,7 +11,7 @@ GameStates.makeEndScreen = function( game, shared ) {
             music = game.add.audio('gameOver');
             music.play();
     
-            game.add.sprite(0, 0, 'titlePage');
+            game.add.sprite(0, 0, 'endScreen');
     
         },
    
