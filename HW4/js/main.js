@@ -195,7 +195,7 @@ window.onload = function() {
         if(elapsedTime < elapsedMax)
         {
             MAX_MISSILES += 2;
-            elapsedMax -=5;
+            elapsedMax -=10;
         }
         
 
