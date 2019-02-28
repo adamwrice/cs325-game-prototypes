@@ -237,19 +237,19 @@ window.onload = function() {
                 m.kill();
                 getExplosion(m.x, m.y);
             }
+            // if the player dies and time is reset, kill all missiles
+            if(elapsedTime >= 300)
+            {
+                m.kill();
+                getExplosion(m.x, m.y);
+            }
             // if the player survived, destory all missles and move to win screen
             if(elapsedTime <= 0)
             {
                 m.kill();
                 getExplosion(m.x, m.y);
             }
-            if(elapsedTime > 300)
-            {
-                m.kill();
-                getExplosion(m.x, m.y);
-            }
-
-
+          
          }, this);
          //put the plane on top of the smoke trail
          plane.bringToTop();
