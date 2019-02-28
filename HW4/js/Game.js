@@ -44,7 +44,7 @@ GameStates.makeGame = function( game, shared ) {
         //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
 
         //  Then let's go back to the main menu.
-        game.state.start('MainMenu');
+        game.state.start('EndScreen');
 
     }
     
@@ -321,7 +321,9 @@ var Missile = function(game, x,y)
             elapsedMax -=5;
         }
         
-
+        if(elapsedTime <= 0){
+            quitGame();
+        }
 
         //if there are a max number of missiles spawn some in from the sides of the game
          if (missileGroup.countLiving() < MAX_MISSILES && elapsedTime >= 0)
