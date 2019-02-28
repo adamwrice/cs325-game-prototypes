@@ -47,11 +47,9 @@ window.onload = function() {
 
     var timer;
 
-    var elapsedTime = -303.0;
+    var elapsedTime = 63.0;
 
-    var elapsedMax = 5;
-
-    var highScore = 33.0; //my current highscore
+    var elapsedMax = 55;
 
     var plane;
 
@@ -172,13 +170,9 @@ window.onload = function() {
     {
         endedfx.play();
         timer.pause();
-        if (elapsedTime > highScore )
-        {
-            highScore = elapsedTime;
-        }
-        elapsedTime = -3.0;
-        elapsedMax = 5;
-        MAX_MISSILES = 10;
+        elapsedTime = 63.0;
+        elapsedMax = 55;
+        MAX_MISSILES = 1;
         
         plane.reset(400, 300);
         plane.body.acceleration.setTo(0,0);
@@ -199,10 +193,10 @@ window.onload = function() {
         game.physics.arcade.collide(plane, ground);
         
         //every 5 seconds add a missile
-        if(elapsedTime > elapsedMax)
+        if(elapsedTime < elapsedMax)
         {
             MAX_MISSILES += 2;
-            elapsedMax +=5;
+            elapsedMax -=5;
         }
         
 
