@@ -47,7 +47,7 @@ window.onload = function() {
 
     var timer;
 
-    var elapsedTime = -3.0;
+    var elapsedTime = -303.0;
 
     var elapsedMax = 5;
 
@@ -63,7 +63,7 @@ window.onload = function() {
 
     var missileGroup;
 
-    var MAX_MISSILES = 10;
+    var MAX_MISSILES = 1;
 
     
 
@@ -136,7 +136,7 @@ window.onload = function() {
     //used for the timer
     function updateCounter()
     {
-        elapsedTime += .1;
+        elapsedTime -= .1;
     }
 
     
@@ -194,9 +194,7 @@ window.onload = function() {
 
 
     function update() {
-        //extremely basic score system
-        game.debug.text('HIGHSCORE: ' + highScore + ' seconds', 32, 32 );
-        game.debug.text('Time Survived: ' + elapsedTime + ' seconds', 32, 64);
+        game.debug.text('Time Left: ' + elapsedTime + ' seconds', 32, 64);
         
         game.physics.arcade.collide(plane, ground);
         
@@ -206,10 +204,7 @@ window.onload = function() {
             MAX_MISSILES += 2;
             elapsedMax +=5;
         }
-        if(elapsedTime > highScore)
-        {
-            highScore = elapsedTime;
-        }
+        
 
 
         //if there are a max number of missiles spawn some in from the sides of the game
@@ -248,8 +243,13 @@ window.onload = function() {
                 m.kill();
                 getExplosion(m.x, m.y);
             }
-            // if the player died destroy all remaining missiles
-            if(elapsedTime < 0)
+            // if the player survived, destory all missles and move to win screen
+            if(elapsedTime <= 0)
+            {
+                m.kill();
+                getExplosion(m.x, m.y);
+            }
+            if(elapsedTime > 300)
             {
                 m.kill();
                 getExplosion(m.x, m.y);
