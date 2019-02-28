@@ -170,10 +170,9 @@ window.onload = function() {
     {
         endedfx.play();
         timer.pause();
-        elapsedTime = 63.0;
+        elapsedTime = 60.0;
         elapsedMax = 55;
         MAX_MISSILES = 1;
-        
         plane.reset(400, 300);
         plane.body.acceleration.setTo(0,0);
         plane.angle = 0;
@@ -238,7 +237,7 @@ window.onload = function() {
                 getExplosion(m.x, m.y);
             }
             // if the player dies and time is reset, kill all missiles
-            if(elapsedTime >= 300)
+            if(elapsedTime >= 60)
             {
                 m.kill();
                 getExplosion(m.x, m.y);
