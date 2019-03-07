@@ -41,60 +41,7 @@ GameStates.makeGame = function( game, shared ) {
 
     }
     
-    return {
-        
-        create: function () {
-    
-            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-            map = game.add.tilemap('matching');
-
-             map.addTilesetImage('Desert', 'tiles');
-
-            //tileset = game.add.tileset('tiles');
-
-            layer = map.createLayer('Ground');//.tilemapLayer(0, 0, 600, 600, tileset, map, 0);
-
-            //layer.resizeWorld();
-
-            marker = game.add.graphics();
-            marker.lineStyle(2, 0x00FF00, 1);
-            marker.drawRect(0, 0, 100, 100);
-
-            randomizeTiles();
-            
-            
-            // When you click on the sprite, you go back to the MainMenu.
-            //bouncy.inputEnabled = true;
-            //bouncy.events.onInputDown.add( function() { quitGame(); }, this );
-        },
-    
-        update: function () {
-    
-            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-           
-        countDownTimer();
-    
-            if (layer.getTileX(game.input.activePointer.worldX) <= 5) // to prevent the marker from going out of bounds
-            {
-                marker.x = layer.getTileX(game.input.activePointer.worldX) * 100;
-                marker.y = layer.getTileY(game.input.activePointer.worldY) * 100;
-            }
-
-            if (flipFlag == true) 
-            {
-                if (game.time.totalElapsedSeconds() - timeCheck > 0.5)
-                {
-                    flipBack();
-                }
-            }
-            else
-            {
-                processClick();
-            }
-        }
-
-
-        function countDownTimer() {
+    function countDownTimer() {
 
             var timeLimit = 120;
 
@@ -247,6 +194,58 @@ GameStates.makeGame = function( game, shared ) {
 
             game.debug.text('Tile Position: ' + currentTilePosition, 620, 144, 'rgb(255,0,0)');
             game.debug.text('Hidden Tile: ' + getHiddenTile(), 620, 176, 'rgb(255,0,0)');
+        }
+    
+    return {
+        
+        create: function () {
+    
+            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+            map = game.add.tilemap('matching');
+
+             map.addTilesetImage('Desert', 'tiles');
+
+            //tileset = game.add.tileset('tiles');
+
+            layer = map.createLayer('Ground');//.tilemapLayer(0, 0, 600, 600, tileset, map, 0);
+
+            //layer.resizeWorld();
+
+            marker = game.add.graphics();
+            marker.lineStyle(2, 0x00FF00, 1);
+            marker.drawRect(0, 0, 100, 100);
+
+            randomizeTiles();
+            
+            
+            // When you click on the sprite, you go back to the MainMenu.
+            //bouncy.inputEnabled = true;
+            //bouncy.events.onInputDown.add( function() { quitGame(); }, this );
+        },
+    
+        update: function () {
+    
+            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+           
+        countDownTimer();
+    
+            if (layer.getTileX(game.input.activePointer.worldX) <= 5) // to prevent the marker from going out of bounds
+            {
+                marker.x = layer.getTileX(game.input.activePointer.worldX) * 100;
+                marker.y = layer.getTileY(game.input.activePointer.worldY) * 100;
+            }
+
+            if (flipFlag == true) 
+            {
+                if (game.time.totalElapsedSeconds() - timeCheck > 0.5)
+                {
+                    flipBack();
+                }
+            }
+            else
+            {
+                processClick();
+            }
         }
     }
 };
