@@ -25,12 +25,14 @@ GameStates.makeGame = function( game, shared ) {
     var marker;
     var currentTile;
     var currentTilePosition;
+    var currentNum;
 
     var tileBack = 25;
     var timesUp = '+';
     var youWin = '+';
 
     var myCountdownSeconds;
+    var mySeconds;
     function quitGame() {
 
         //  Here you should destroy anything you no longer need.
@@ -56,9 +58,12 @@ GameStates.makeGame = function( game, shared ) {
 
             }
         }
+        function flipOver() {
 
+            map.putTile(currentNum, layer.getTileX(marker.x), layer.getTileY(marker.y));
+        }
         function processClick() {
-
+       
             currentTile = map.getTile(layer.getTileX(marker.x), layer.getTileY(marker.y));
             currentTilePosition = ((layer.getTileY(game.input.activePointer.worldY)+1)*6)-(6-(layer.getTileX(game.input.activePointer.worldX)+1));
 
@@ -112,11 +117,6 @@ GameStates.makeGame = function( game, shared ) {
             }
         }
 
-        function flipOver() {
-
-            map.putTile(currentNum, layer.getTileX(marker.x), layer.getTileY(marker.y));
-        }
-
         function flipBack() {
 
             flipFlag = false;
@@ -141,6 +141,7 @@ GameStates.makeGame = function( game, shared ) {
             //myString1 = startList.toString();
 
             // randomize squareList
+            var i;
             for (i = 1; i <=36; i++)
             {
                 var randomPosition = game.rnd.integerInRange(0,startList.length - 1);
@@ -155,7 +156,8 @@ GameStates.makeGame = function( game, shared ) {
 
             // for debugging
             //myString2 = squareList.toString();
-
+            var col;
+            var row;
             for (col = 0; col < 6; col++)
             {
                 for (row = 0; row < 6; row++)
@@ -166,7 +168,7 @@ GameStates.makeGame = function( game, shared ) {
         }
 
         function getHiddenTile() {
-
+            var thisTile;
             thisTile = squareList[currentTilePosition-1];
             return thisTile;
         }
