@@ -2,8 +2,35 @@
 
 GameStates.makeGame = function( game, shared ) {
     // Create your own variables.
-    var bouncy = null;
-    
+    var timeCheck = 0; //borrowed code below
+    var flipFlag = false;
+
+    var startList = new Array();
+    var squareList = new Array();
+
+    var masterCounter = 0;
+    var squareCounter = 0;
+    var clickCount = 0;
+    var square1Num;
+    var square2Num;
+    var savedSquareX1;
+    var savedSquareY1;
+    var savedSquareX2;
+    var savedSquareY2;
+
+    var map;
+    var tileset;
+    var layer;
+
+    var marker;
+    var currentTile;
+    var currentTilePosition;
+
+    var tileBack = 25;
+    var timesUp = '+';
+    var youWin = '+';
+
+    var myCountdownSeconds;
     function quitGame() {
 
         //  Here you should destroy anything you no longer need.
@@ -15,38 +42,6 @@ GameStates.makeGame = function( game, shared ) {
     }
     
     return {
-
-        
-        var timeCheck = 0; //borrowed code below
-        var flipFlag = false;
-
-        var startList = new Array();
-        var squareList = new Array();
-
-        var masterCounter = 0;
-        var squareCounter = 0;
-        var clickCount = 0;
-        var square1Num;
-        var square2Num;
-        var savedSquareX1;
-        var savedSquareY1;
-        var savedSquareX2;
-        var savedSquareY2;
-
-        var map;
-        var tileset;
-        var layer;
-
-        var marker;
-        var currentTile;
-        var currentTilePosition;
-
-        var tileBack = 25;
-        var timesUp = '+';
-        var youWin = '+';
-
-        var myCountdownSeconds;
-
         
         create: function () {
     
