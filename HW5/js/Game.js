@@ -111,6 +111,7 @@ GameStates.makeGame = function( game, shared ) {
                             savedSquareX1 = layer.getTileX(marker.x);
                             savedSquareY1 = layer.getTileY(marker.y);
                             square1Num = currentNum;
+                            flipBack();
                         }
                     }
                 }
