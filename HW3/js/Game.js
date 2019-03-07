@@ -138,7 +138,7 @@ GameStates.makeGame = function( game, shared ) {
             }
 
             // for debugging
-            myString1 = startList.toString();
+            //myString1 = startList.toString();
 
             // randomize squareList
             for (i = 1; i <=36; i++)
@@ -154,7 +154,7 @@ GameStates.makeGame = function( game, shared ) {
             }
 
             // for debugging
-            myString2 = squareList.toString();
+            //myString2 = squareList.toString();
 
             for (col = 0; col < 6; col++)
             {
