@@ -112,8 +112,8 @@ GameStates.makeGame = function( game, shared ) {
                             savedSquareX1 = layer.getTileX(marker.x);
                             savedSquareY1 = layer.getTileY(marker.y);
                             square1Num = currentNum;
-                            this.destroy();
-                            this.destroy();
+                            savedSquareX1.kill();
+                            savedSquareY1.kill();
                         }
                     }
                 }
