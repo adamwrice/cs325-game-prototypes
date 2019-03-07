@@ -127,7 +127,7 @@ GameStates.makeGame = function( game, shared ) {
         }
 
         function randomizeTiles() {
-
+            var num;
             for (num = 1; num <= 18; num++)
             {
                 startList.push(num);
