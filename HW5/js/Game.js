@@ -104,7 +104,6 @@ GameStates.makeGame = function( game, shared ) {
                                 savedSquareY2 = layer.getTileY(marker.y);
                                 flipFlag = true;
                                 timeCheck = game.time.totalElapsedSeconds();
-                                flipBack();
                             }
                         }
                         else
@@ -112,6 +111,7 @@ GameStates.makeGame = function( game, shared ) {
                             savedSquareX1 = layer.getTileX(marker.x);
                             savedSquareY1 = layer.getTileY(marker.y);
                             square1Num = currentNum;
+                            flipBack();
                             //savedSquareX1.sprite.kill();
                             //savedSquareY1.sprite.kill();
                         }
