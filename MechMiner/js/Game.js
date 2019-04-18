@@ -18,6 +18,7 @@ GameStates.makeGame = function( game, shared ) {
     var silver = 0;
     var iron = 0;
     var copper = 0;
+    var ore;
 
     var layer;
     var sprite;
