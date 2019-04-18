@@ -34,11 +34,14 @@ GameStates.makePreloader = function( game ) {
 	    game.load.image('tiles2', 'assets/tiles2.png');
 
 	    game.load.image('phaser', 'assets/drill.png');
-	    game.load.spritesheet('diamond', 'assets/diamond.png', 32, 32);
-	    game.load.spritesheet('gold', 'assets/gold.png', 32, 32);
-	    game.load.spritesheet('silver', 'assets/silver.png', 32, 32);
-	    game.load.spritesheet('iron', 'assets/iron.png', 32, 32);
-	    game.load.spritesheet('copper', 'assets/copper.png', 32, 32);
+	    game.load.image('diamond', 'assets/diamond.png');
+	    game.load.image('gold', 'assets/gold.png');
+	    game.load.image('silver', 'assets/silver.png');
+	    game.load.image('iron', 'assets/iron.png');
+	    game.load.image('copper', 'assets/copper.png');
+		
+	    game.load.audio('digSound', 'assets/');
+	    game.load.audio('burnSound', 'assets/burning3.mp3');
         },
     
         create: function () {
