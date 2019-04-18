@@ -2,6 +2,13 @@
 
 GameStates.makeGame = function( game, shared ) {
     // Create your own variables.
+    var cursors;
+    var map;
+    var coins;
+
+    var layer;
+    var sprite;
+
     
     function quitGame() {
 
@@ -13,35 +20,88 @@ GameStates.makeGame = function( game, shared ) {
 
     }
     
-   
+    function collectCoin(player, coin) {
 
-        function render() {
+    coin.kill();
 
-           
-        }
+    }   
+
+    function render() {
+            game.debug.body(sprite);
+    }
     
     return {
         
         create: function () {
     
-            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-            map = game.add.tilemap('matching');
+            map = game.add.tilemap('map');
 
-            //map.addTilesetImage('Desert', 'tiles');
+            map.addTilesetImage('ground_1x1');
+            map.addTilesetImage('walls_1x2');
+            map.addTilesetImage('tiles2');
 
-            //tileset = game.add.tileset('tiles');
+            map.setCollisionBetween(1, 12);
 
-            //layer = map.createLayer('Ground');//.tilemapLayer(0, 0, 600, 600, tileset, map, 0);
+            layer = map.createLayer('Tile Layer 1');
 
-            //layer.resizeWorld();
+            layer.resizeWorld();
+
+            game.physics.startSystem(Phaser.Physics.ARCADE);
+
+            //  Here we create our coins group
+            coins = game.add.group();
+            coins.enableBody = true;
+
+            //  And now we convert all of the Tiled objects with an ID of 34 into sprites within the coins group
+            map.createFromObjects('Object Layer 1', 34, 'coin', 0, true, false, coins);
+
+            //  Add animations to all of the coin sprites
+            coins.callAll('animations.add', 'animations', 'spin', [0, 1, 2, 3, 4, 5], 10, true);
+            coins.callAll('animations.play', 'animations', 'spin');
+
+            sprite = game.add.sprite(260, 100, 'phaser');
+            sprite.anchor.set(0.5);
+
+            game.physics.arcade.enable(sprite);
+
+            //  This adjusts the collision body size.
+            sprite.body.setSize(32, 32, 0, 0);
+
+            //  We'll set a lower max angular velocity here to keep it from going totally nuts
+            sprite.body.maxAngular = 500;
+
+            //  Apply a drag otherwise the sprite will just spin and never slow down
+            sprite.body.angularDrag = 50;
+
+            game.camera.follow(sprite);
+
+            cursors = game.input.keyboard.createCursorKeys();
 
           
         },
     
         update: function () {
     
-            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-           
+            game.physics.arcade.collide(sprite, layer);
+            game.physics.arcade.overlap(sprite, coins, collectCoin, null, this);
+
+            sprite.body.velocity.x = 0;
+            sprite.body.velocity.y = 0;
+            sprite.body.angularVelocity = 0;
+
+            if (cursors.left.isDown)
+            {
+                sprite.body.angularVelocity = -300;
+            }
+            else if (cursors.right.isDown)
+            {
+                sprite.body.angularVelocity = 300;
+            }
+
+            if (cursors.up.isDown)
+            {
+                game.physics.arcade.velocityFromAngle(sprite.angle, 300, sprite.body.velocity);
+            }
         }
     }
 };
