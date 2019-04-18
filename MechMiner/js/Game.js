@@ -17,7 +17,8 @@ GameStates.makeGame = function( game, shared ) {
 
     var layer;
     var sprite;
-    var sound;
+    var digSound;
+    var burnSound;
 
     
     function quitGame() {
@@ -83,6 +84,7 @@ GameStates.makeGame = function( game, shared ) {
             copper--;
             energy = energy + 6;
         }
+        burnSound.play();
     }
 
     function render() {
@@ -105,7 +107,8 @@ GameStates.makeGame = function( game, shared ) {
 
             layer.resizeWorld();
             
-            sound = game.add.audio('sound');   
+            digSound = game.add.audio('digSound');
+            burnSound = game.add.audio('burnSound');
             
             game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -165,7 +168,7 @@ GameStates.makeGame = function( game, shared ) {
             
             if (digButton.isDown)
             {
-                sound.play();
+                digSound.play();
             }
         }
     }
