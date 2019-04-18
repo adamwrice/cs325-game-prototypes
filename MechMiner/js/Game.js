@@ -6,8 +6,12 @@ GameStates.makeGame = function( game, shared ) {
     var burnButton;
     var digButton;
     var map;
-    var ore;
-    var energy = 100;
+    var diamondOre;
+    var goldOre;
+    var silverOre;
+    var ironOre;
+    var copperOre;
+    var energy = 1000;
     var heat = 0.0;
     var diamond = 0;
     var gold = 0;
@@ -144,11 +148,16 @@ GameStates.makeGame = function( game, shared ) {
             ore.enableBody = true;
 
             //  And now we convert all of the Tiled objects with an ID of 34 into sprites within the ore group
+            diamondOre = game.addsprite(50, 50, 'diamond');
+            goldOre = game.addsprite(50, 50, 'gold');
+            silverOre = game.addsprite(50, 50, 'silver');
+            ironOre = game.addsprite(50, 50, 'iron');
+            copperOre = game.addsprite(50, 50, 'copper');
             map.createFromObjects('Object Layer 1', 34, 'diamond', 0, true, false, ore);
-            map.createFromObjects('Object Layer 1', 35, 'gold', 0, true, false, ore);
-            map.createFromObjects('Object Layer 1', 36, 'silver', 0, true, false, ore);
-            map.createFromObjects('Object Layer 1', 37, 'iron', 0, true, false, ore);
-            map.createFromObjects('Object Layer 1', 38, 'copper', 0, true, false, ore);
+            //map.createFromObjects('Object Layer 1', 35, 'gold', 0, true, false, ore);
+            //map.createFromObjects('Object Layer 1', 36, 'silver', 0, true, false, ore);
+            //map.createFromObjects('Object Layer 1', 37, 'iron', 0, true, false, ore);
+            //map.createFromObjects('Object Layer 1', 38, 'copper', 0, true, false, ore);
 
             sprite = game.add.sprite(260, 100, 'phaser');
             sprite.anchor.set(0.5);
