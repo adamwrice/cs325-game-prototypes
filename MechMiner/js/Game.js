@@ -3,8 +3,12 @@
 GameStates.makeGame = function( game, shared ) {
     // Create your own variables.
     var cursors;
+    var burnButton;
+    var digButton;
     var map;
     var ore;
+    var energy = 100;
+    var heat = 0;
     var diamond = 0;
     var gold = 0;
     var silver = 0;
@@ -13,6 +17,7 @@ GameStates.makeGame = function( game, shared ) {
 
     var layer;
     var sprite;
+    var sound;
 
     
     function quitGame() {
@@ -29,27 +34,59 @@ GameStates.makeGame = function( game, shared ) {
         if (ore == 'diamond')
         {
             diamond++;
+            energy = energy - 30;
         }
         else if (ore == 'gold')
         {
             gold++;
+            energy = energy - 20;
         }
         else if (ore == 'silver')
         {
             silver++;
+            energy = energy - 10;
         }
         else if (ore == 'iron')
         {
             iron++;
+            energy = energy - 5;
         }
         else {
             copper++;
+            energy = energy - 3;
         }
         ore.kill();
     }   
+    
+    function burn() {
+        if (ore == 'diamond')
+        {
+            diamond--;
+            energy = energy + 60;
+        }
+        else if (ore == 'gold')
+        {
+            gold--;
+            energy = energy + 40;
+        }
+        else if (ore == 'silver')
+        {
+            silver--;
+            energy = energy + 20;
+        }
+        else if (ore == 'iron')
+        {
+            iron--;
+            energy = energy + 10;
+        }
+        else {
+            copper--;
+            energy = energy + 6;
+        }
+    }
 
     function render() {
-            game.debug.body(sprite);
+            //game.debug.body(sprite);
     }
     
     return {
@@ -67,7 +104,9 @@ GameStates.makeGame = function( game, shared ) {
             layer = map.createLayer('Tile Layer 1');
 
             layer.resizeWorld();
-
+            
+            sound = game.add.audio('sound');   
+            
             game.physics.startSystem(Phaser.Physics.ARCADE);
 
             //  Here we create ore group
@@ -94,7 +133,8 @@ GameStates.makeGame = function( game, shared ) {
             game.camera.follow(sprite);
 
             cursors = game.input.keyboard.createCursorKeys();
-
+            burnButton =  game.input.addKey(Phaser.Keyboard.B);
+            digButton = game.input.addKey(Phaser.Keyboard.SPACE);
           
         },
     
@@ -119,6 +159,13 @@ GameStates.makeGame = function( game, shared ) {
             if (cursors.up.isDown)
             {
                 game.physics.arcade.velocityFromAngle(sprite.angle, 300, sprite.body.velocity);
+            }
+            
+            burnButton.onDown.add(burn(ore), this);
+            
+            if (digButton.isDown)
+            {
+                sound.play();
             }
         }
     }
