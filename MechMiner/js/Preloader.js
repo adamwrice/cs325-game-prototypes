@@ -29,12 +29,12 @@ GameStates.makePreloader = function( game ) {
             //	+ lots of other required assets here
              game.load.tilemap('map', 'assets/tilemaps/maps/features_test.json', null, Phaser.Tilemap.TILED_JSON);
 
-	    game.load.image('ground_1x1', 'assets/tilemaps/tiles/ground_1x1.png');
-	    game.load.image('walls_1x2', 'assets/tilemaps/tiles/walls_1x2.png');
-	    game.load.image('tiles2', 'assets/tilemaps/tiles/tiles2.png');
+	    game.load.image('ground_1x1', 'assets/ground_1x1.png');
+	    game.load.image('walls_1x2', 'assets/walls_1x2.png');
+	    game.load.image('tiles2', 'assets/tiles2.png');
 
-	    game.load.image('phaser', 'assets/sprites/arrow.png');
-	    game.load.spritesheet('coin', 'assets/sprites/coin.png', 32, 32);
+	    game.load.image('phaser', 'assets/drill.png');
+	    game.load.spritesheet('coin', 'assets/coin.png', 32, 32);
         },
     
         create: function () {
