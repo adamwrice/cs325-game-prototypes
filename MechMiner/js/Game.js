@@ -89,7 +89,8 @@ GameStates.makeGame = function( game, shared ) {
     }
 
     function render() {
-            //game.debug.body(sprite);
+            game.debug.text("Energy: " + energy);
+            game.debug.text("Heat: " + heat);
     }
     
     return {
