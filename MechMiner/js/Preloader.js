@@ -27,9 +27,14 @@ GameStates.makePreloader = function( game ) {
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
             game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
             //	+ lots of other required assets here
-            
-	    game.load.tilemap('matching', 'assets/phaser_tiles.json', null, Phaser.Tilemap.TILED_JSON);
-            game.load.image('tiles', 'assets/phaser_tiles.png');//, 100, 100, -1, 1, 1); 
+             game.load.tilemap('map', 'assets/tilemaps/maps/features_test.json', null, Phaser.Tilemap.TILED_JSON);
+
+	    game.load.image('ground_1x1', 'assets/tilemaps/tiles/ground_1x1.png');
+	    game.load.image('walls_1x2', 'assets/tilemaps/tiles/walls_1x2.png');
+	    game.load.image('tiles2', 'assets/tilemaps/tiles/tiles2.png');
+
+	    game.load.image('phaser', 'assets/sprites/arrow.png');
+	    game.load.spritesheet('coin', 'assets/sprites/coin.png', 32, 32);
         },
     
         create: function () {
