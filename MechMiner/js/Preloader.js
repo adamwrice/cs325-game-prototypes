@@ -34,7 +34,11 @@ GameStates.makePreloader = function( game ) {
 	    game.load.image('tiles2', 'assets/tiles2.png');
 
 	    game.load.image('phaser', 'assets/drill.png');
-	    game.load.spritesheet('coin', 'assets/coin.png', 32, 32);
+	    game.load.spritesheet('diamond', 'assets/diamond.png', 32, 32);
+	    game.load.spritesheet('gold', 'assets/gold.png', 32, 32);
+	    game.load.spritesheet('silver', 'assets/silver.png', 32, 32);
+	    game.load.spritesheet('iron', 'assets/iron.png', 32, 32);
+	    game.load.spritesheet('copper', 'assets/copper.png', 32, 32);
         },
     
         create: function () {
