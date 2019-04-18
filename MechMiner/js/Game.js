@@ -31,6 +31,10 @@ GameStates.makeGame = function( game, shared ) {
 
     }
     
+    function endGame() {
+        game.state.start('EndScreen');
+    }
+    
     function collectOre(player, ore) {
         if (ore == 'diamond')
         {
