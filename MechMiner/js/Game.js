@@ -149,11 +149,11 @@ GameStates.makeGame = function( game, shared ) {
             ore.enableBody = true;
 
             //  And now we convert all of the Tiled objects with an ID of 34 into sprites within the ore group
-            diamondOre = game.addsprite(10, 10, 'diamond');
-            goldOre = game.addsprite(10, 10, 'gold');
-            silverOre = game.addsprite(10, 10, 'silver');
-            ironOre = game.addsprite(10, 10, 'iron');
-            copperOre = game.addsprite(10, 10, 'copper');
+            diamondOre = game.add.sprite(10, 10, 'diamond');
+            goldOre = game.add.sprite(10, 10, 'gold');
+            silverOre = game.add.sprite(10, 10, 'silver');
+            ironOre = game.add.sprite(10, 10, 'iron');
+            copperOre = game.add.sprite(10, 10, 'copper');
             map.createFromObjects('Object Layer 1', 34, 'diamond', 0, true, false, ore);
             map.createFromObjects('Object Layer 1', 34, 'gold', 0, true, false, ore);
             map.createFromObjects('Object Layer 1', 34, 'silver', 0, true, false, ore);
