@@ -156,10 +156,10 @@ GameStates.makeGame = function( game, shared ) {
             ironOre = game.addsprite(10, 10, 'iron');
             copperOre = game.addsprite(10, 10, 'copper');
             map.createFromObjects('Object Layer 1', 34, 'diamond', 0, true, false, ore);
-            //map.createFromObjects('Object Layer 1', 35, 'gold', 0, true, false, ore);
-            //map.createFromObjects('Object Layer 1', 36, 'silver', 0, true, false, ore);
-            //map.createFromObjects('Object Layer 1', 37, 'iron', 0, true, false, ore);
-            //map.createFromObjects('Object Layer 1', 38, 'copper', 0, true, false, ore);
+            map.createFromObjects('Object Layer 1', 34, 'gold', 0, true, false, ore);
+            map.createFromObjects('Object Layer 1', 34, 'silver', 0, true, false, ore);
+            map.createFromObjects('Object Layer 1', 34, 'iron', 0, true, false, ore);
+            map.createFromObjects('Object Layer 1', 34, 'copper', 0, true, false, ore);
 
             sprite = game.add.sprite(260, 100, 'phaser');
             sprite.anchor.set(0.5);
