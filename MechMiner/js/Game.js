@@ -44,26 +44,26 @@ GameStates.makeGame = function( game, shared ) {
         if (ore == 'diamond')
         {
             diamond++;
-            energy = energy - 30;
+            energy = energy - 300;
         }
         else if (ore == 'gold')
         {
             gold++;
-            energy = energy - 20;
+            energy = energy - 200;
         }
         else if (ore == 'silver')
         {
             silver++;
-            energy = energy - 10;
+            energy = energy - 100;
         }
         else if (ore == 'iron')
         {
             iron++;
-            energy = energy - 5;
+            energy = energy - 50;
         }
         else {
             copper++;
-            energy = energy - 3;
+            energy = energy - 30;
         }
         ore.kill();
     }   
@@ -72,26 +72,26 @@ GameStates.makeGame = function( game, shared ) {
         if (ore == 'diamond')
         {
             diamond--;
-            energy = energy + 60;
+            energy = energy + 600;
         }
         else if (ore == 'gold')
         {
             gold--;
-            energy = energy + 40;
+            energy = energy + 400;
         }
         else if (ore == 'silver')
         {
             silver--;
-            energy = energy + 20;
+            energy = energy + 200;
         }
         else if (ore == 'iron')
         {
             iron--;
-            energy = energy + 10;
+            energy = energy + 100;
         }
         else {
             copper--;
-            energy = energy + 6;
+            energy = energy + 60;
         }
         burnSound.play();
         heat = heat + 1;
