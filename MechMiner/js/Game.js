@@ -5,6 +5,11 @@ GameStates.makeGame = function( game, shared ) {
     var cursors;
     var map;
     var ore;
+    var diamond = 0;
+    var gold = 0;
+    var silver = 0;
+    var iron = 0;
+    var copper = 0;
 
     var layer;
     var sprite;
@@ -21,9 +26,26 @@ GameStates.makeGame = function( game, shared ) {
     }
     
     function collectOre(player, ore) {
-
-    ore.kill();
-
+        if (ore == 'diamond')
+        {
+            diamond++;
+        }
+        else if (ore == 'gold')
+        {
+            gold++;
+        }
+        else if (ore == 'silver')
+        {
+            silver++;
+        }
+        else if (ore == 'iron')
+        {
+            iron++;
+        }
+        else {
+            copper++;
+        }
+        ore.kill();
     }   
 
     function render() {
