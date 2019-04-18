@@ -177,8 +177,15 @@ GameStates.makeGame = function( game, shared ) {
             {
                 quitGame();
             }
+            else if (heat >= 10)
+            {
+                quitGame();
+            }
             energy--;
-            heat = heat-0.1;
+            if (heat > 0)
+            {
+                heat = heat-0.1;
+            }
         }
     }
 };
