@@ -98,10 +98,8 @@ GameStates.makeGame = function( game, shared ) {
     }
 
     function render() {
-            game.debug.text("Energy: ", 0, 0);
-            game.debug.text(energy, 10, 0);
-            game.debug.text("Heat: ", 0, 10);
-            game.debug.text(heat, 10, 10);
+            game.debug.text("Energy: " + energy, 0, 0);
+            game.debug.text("Heat: " + heat, 0, 20);
             if (burnButton.isDown){
                 burn(ore);
             }
