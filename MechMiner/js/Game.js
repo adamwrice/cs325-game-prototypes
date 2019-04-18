@@ -4,7 +4,7 @@ GameStates.makeGame = function( game, shared ) {
     // Create your own variables.
     var cursors;
     var map;
-    var coins;
+    var ore;
 
     var layer;
     var sprite;
@@ -20,9 +20,9 @@ GameStates.makeGame = function( game, shared ) {
 
     }
     
-    function collectCoin(player, coin) {
+    function collectOre(player, ore) {
 
-    coin.kill();
+    ore.kill();
 
     }   
 
@@ -48,16 +48,12 @@ GameStates.makeGame = function( game, shared ) {
 
             game.physics.startSystem(Phaser.Physics.ARCADE);
 
-            //  Here we create our coins group
-            coins = game.add.group();
-            coins.enableBody = true;
+            //  Here we create ore group
+            ore = game.add.group();
+            ore.enableBody = true;
 
-            //  And now we convert all of the Tiled objects with an ID of 34 into sprites within the coins group
-            map.createFromObjects('Object Layer 1', 34, 'coin', 0, true, false, coins);
-
-            //  Add animations to all of the coin sprites
-            coins.callAll('animations.add', 'animations', 'spin', [0, 1, 2, 3, 4, 5], 10, true);
-            coins.callAll('animations.play', 'animations', 'spin');
+            //  And now we convert all of the Tiled objects with an ID of 34 into sprites within the ore group
+            map.createFromObjects('Object Layer 1', 34, 'ore', 0, true, false, ore);
 
             sprite = game.add.sprite(260, 100, 'phaser');
             sprite.anchor.set(0.5);
@@ -83,7 +79,7 @@ GameStates.makeGame = function( game, shared ) {
         update: function () {
     
             game.physics.arcade.collide(sprite, layer);
-            game.physics.arcade.overlap(sprite, coins, collectCoin, null, this);
+            game.physics.arcade.overlap(sprite, ore, collectOre, null, this);
 
             sprite.body.velocity.x = 0;
             sprite.body.velocity.y = 0;
