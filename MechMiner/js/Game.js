@@ -95,6 +95,27 @@ GameStates.makeGame = function( game, shared ) {
     function render() {
             game.debug.text("Energy: " + energy);
             game.debug.text("Heat: " + heat);
+            if (burnButton.isDown){
+                burn(ore);
+            }
+            if (digButton.isDown)
+            {
+                digSound.play();
+            }
+            
+            if(energy <= 0)
+            {
+                quitGame();
+            }
+            else if (heat >= 10)
+            {
+                quitGame();
+            }
+            energy--;
+            if (heat > 0)
+            {
+                heat = heat-0.1;
+            }
     }
     
     return {
@@ -172,28 +193,6 @@ GameStates.makeGame = function( game, shared ) {
             if (cursors.up.isDown)
             {
                 game.physics.arcade.velocityFromAngle(sprite.angle, 300, sprite.body.velocity);
-            }
-            
-            if (burnButton.isDown){
-                burn(ore);
-            }
-            if (digButton.isDown)
-            {
-                digSound.play();
-            }
-            
-            if(energy <= 0)
-            {
-                quitGame();
-            }
-            else if (heat >= 10)
-            {
-                quitGame();
-            }
-            energy--;
-            if (heat > 0)
-            {
-                heat = heat-0.1;
             }
         }
     }
