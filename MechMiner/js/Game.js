@@ -59,7 +59,7 @@ GameStates.makeGame = function( game, shared ) {
         ore.kill();
     }   
     
-    function burn() {
+    function burn(ore) {
         if (ore == 'diamond')
         {
             diamond--;
