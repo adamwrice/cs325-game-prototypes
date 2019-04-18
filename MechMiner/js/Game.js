@@ -166,8 +166,9 @@ GameStates.makeGame = function( game, shared ) {
                 game.physics.arcade.velocityFromAngle(sprite.angle, 300, sprite.body.velocity);
             }
             
-            burnButton.onDown.add(burn(ore), this);
-            
+            if (burnButton.isDown){
+                burn(ore);
+            }
             if (digButton.isDown)
             {
                 digSound.play();
