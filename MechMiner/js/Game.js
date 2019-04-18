@@ -103,10 +103,7 @@ GameStates.makeGame = function( game, shared ) {
             if (burnButton.isDown){
                 burn(ore);
             }
-            if (digButton.isDown)
-            {
-                digSound.play();
-            }
+            
             
             if(energy <= 0)
             {
@@ -203,6 +200,10 @@ GameStates.makeGame = function( game, shared ) {
             if (cursors.up.isDown)
             {
                 game.physics.arcade.velocityFromAngle(sprite.angle, 300, sprite.body.velocity);
+            }
+            if (digButton.isDown)
+            {
+                digSound.play();
             }
         }
     }
