@@ -27,7 +27,7 @@ GameStates.makePreloader = function( game ) {
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
             game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
             //	+ lots of other required assets here
-             game.load.tilemap('map', 'assets/tilemaps/maps/features_test.json', null, Phaser.Tilemap.TILED_JSON);
+             game.load.tilemap('map', 'assets/features_test.json', null, Phaser.Tilemap.TILED_JSON);
 
 	    game.load.image('ground_1x1', 'assets/ground_1x1.png');
 	    game.load.image('walls_1x2', 'assets/walls_1x2.png');
