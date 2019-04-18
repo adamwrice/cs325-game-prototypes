@@ -23,25 +23,25 @@ GameStates.makePreloader = function( game ) {
     
             //	Here we load the rest of the assets our game needs.
             //	As this is just a Project Template I've not provided these assets, swap them for your own.
-            game.load.image('titlePage', 'assets/title2.jpg');
-            game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
-            game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
+            game.load.image('titlePage', 'assests/title2.jpg');
+            game.load.atlas('playButton', 'assests/play_button.png', 'assets/play_button.json');
+            game.load.audio('titleMusic', ['assests/Poppers and Prosecco.mp3']);
             //	+ lots of other required assets here
-             game.load.tilemap('map', 'assets/features_test.json', null, Phaser.Tilemap.TILED_JSON);
+             game.load.tilemap('map', 'assests/features_test.json', null, Phaser.Tilemap.TILED_JSON);
 
-	    game.load.image('ground_1x1', 'assets/ground_1x1.png');
-	    game.load.image('walls_1x2', 'assets/walls_1x2.png');
-	    game.load.image('tiles2', 'assets/tiles2.png');
+	    game.load.image('ground_1x1', 'assests/ground_1x1.png');
+	    game.load.image('walls_1x2', 'assests/walls_1x2.png');
+	    game.load.image('tiles2', 'assests/tiles2.png');
 
-	    game.load.image('phaser', 'assets/drill.png');
-	    game.load.image('diamond', 'assets/diamond.png');
-	    game.load.image('gold', 'assets/gold.png');
-	    game.load.image('silver', 'assets/silver.png');
-	    game.load.image('iron', 'assets/iron.png');
-	    game.load.image('copper', 'assets/copper.png');
+	    game.load.image('phaser', 'assests/drill.png');
+	    game.load.image('diamond', 'assests/diamond.png');
+	    game.load.image('gold', 'assests/gold.png');
+	    game.load.image('silver', 'assests/silver.png');
+	    game.load.image('iron', 'assests/iron.png');
+	    game.load.image('copper', 'assests/copper.png');
 		
-	    game.load.audio('digSound', 'assets/Can Opener Electric-SoundBible.com-1371525874.mp3');
-	    game.load.audio('burnSound', 'assets/burning.mp3');
+	    game.load.audio('digSound', 'assests/Can Opener Electric-SoundBible.com-1371525874.mp3');
+	    game.load.audio('burnSound', 'assests/burning.mp3');
         },
     
         create: function () {
