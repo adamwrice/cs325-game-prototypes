@@ -40,8 +40,8 @@ GameStates.makePreloader = function( game ) {
 	    game.load.image('iron', 'assets/iron.png');
 	    game.load.image('copper', 'assets/copper.png');
 		
-	    game.load.audio('digSound', 'assets/');
-	    game.load.audio('burnSound', 'assets/burning3.mp3');
+	    game.load.audio('digSound', 'assets/Can Opener Electric-SoundBible.com-1371525874.mp3');
+	    game.load.audio('burnSound', 'assets/burning.mp3');
         },
     
         create: function () {
