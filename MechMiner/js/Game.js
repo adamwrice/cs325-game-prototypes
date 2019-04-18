@@ -8,7 +8,7 @@ GameStates.makeGame = function( game, shared ) {
     var map;
     var ore;
     var energy = 100;
-    var heat = 0;
+    var heat = 0.0;
     var diamond = 0;
     var gold = 0;
     var silver = 0;
@@ -85,6 +85,7 @@ GameStates.makeGame = function( game, shared ) {
             energy = energy + 6;
         }
         burnSound.play();
+        heat = heat + 1;
     }
 
     function render() {
@@ -170,6 +171,13 @@ GameStates.makeGame = function( game, shared ) {
             {
                 digSound.play();
             }
+            
+            if(energy <= 0)
+            {
+                quitGame();
+            }
+            energy--;
+            heat = heat-0.1;
         }
     }
 };
