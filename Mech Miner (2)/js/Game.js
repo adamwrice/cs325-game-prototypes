@@ -175,8 +175,8 @@ GameStates.makeGame = function( game, shared ) {
             game.camera.follow(sprite);
 
             cursors = game.input.keyboard.createCursorKeys();
-            burnButton =  game.input.keyboard.addKey(Phaser.Keycode.B);
-            digButton = game.input.keyboard.addKey(Phaser.Keycode.X);
+            burnButton =  game.input.keyboard.addKey(Phaser.Keyboard.B);
+            digButton = game.input.keyboard.addKey(Phaser.Keyboard.X);
           
         },
     
