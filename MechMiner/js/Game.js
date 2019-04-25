@@ -98,8 +98,8 @@ GameStates.makeGame = function( game, shared ) {
     }
 
     function render() {
-            this.add.text(0, 0, "Energy: " + this.energy);
-            this.add.text(0, 20, "Heat: " + this.heat);
+            this.add.text(0, 0, "Energy: " + energy);
+            this.add.text(0, 20, "Heat: " + heat);
             if (burnButton.isDown){
                 burn(ore);
             }
@@ -129,7 +129,7 @@ GameStates.makeGame = function( game, shared ) {
             map.addTilesetImage('ground_1x1');
             map.addTilesetImage('walls_1x2');
             map.addTilesetImage('tiles2');
-            map.addTilesetImage('ores');
+            //map.addTilesetImage('ores');
 
             map.setCollisionBetween(1, 12);
 
