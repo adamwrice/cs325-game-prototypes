@@ -129,7 +129,7 @@ GameStates.makeGame = function( game, shared ) {
             map.addTilesetImage('ground_1x1');
             map.addTilesetImage('walls_1x2');
             map.addTilesetImage('tiles2');
-            map.addTilesetImage('ores');
+            //map.addTilesetImage('ores');
 
             map.setCollisionBetween(1, 12);
 
