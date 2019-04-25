@@ -32,7 +32,7 @@ GameStates.makePreloader = function( game ) {
 	    game.load.image('ground_1x1', 'assets/ground_1x1.png');
 	    game.load.image('walls_1x2', 'assets/walls_1x2.png');
 	    game.load.image('tiles2', 'assets/tiles2.png');
-      game.load.image('ores', 'assets/ores.json');
+      		//game.load.image('ores', 'assets/ores.json');
 
 	    game.load.image('phaser', 'assets/Drill.png');
 	    game.load.image('diamond', 'assets/diamond.png');
