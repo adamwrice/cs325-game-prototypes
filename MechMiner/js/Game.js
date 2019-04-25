@@ -129,6 +129,7 @@ GameStates.makeGame = function( game, shared ) {
             map.addTilesetImage('ground_1x1');
             map.addTilesetImage('walls_1x2');
             map.addTilesetImage('tiles2');
+            map.addTilesetImage('ores');
 
             map.setCollisionBetween(1, 12);
 
@@ -151,11 +152,11 @@ GameStates.makeGame = function( game, shared ) {
             silverOre = game.add.sprite(10, 10, 'silver');
             ironOre = game.add.sprite(10, 10, 'iron');
             copperOre = game.add.sprite(10, 10, 'copper');
-            map.createFromObjects('Object Layer 1', 34, 'diamond', 0, true, false, ore);
-            map.createFromObjects('Object Layer 1', 34, 'gold', 0, true, false, ore);
-            map.createFromObjects('Object Layer 1', 34, 'silver', 0, true, false, ore);
-            map.createFromObjects('Object Layer 1', 34, 'iron', 0, true, false, ore);
-            map.createFromObjects('Object Layer 1', 34, 'copper', 0, true, false, ore);
+            map.createFromObjects('Object Layer 1', 5, 'diamond', 0, true, false, ore);
+            map.createFromObjects('Object Layer 1', 4, 'gold', 0, true, false, ore);
+            map.createFromObjects('Object Layer 1', 3, 'silver', 0, true, false, ore);
+            map.createFromObjects('Object Layer 1', 2, 'iron', 0, true, false, ore);
+            map.createFromObjects('Object Layer 1', 1, 'copper', 0, true, false, ore);
 
             sprite = game.add.sprite(260, 100, 'phaser');
             sprite.anchor.set(0.5);
