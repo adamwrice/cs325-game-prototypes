@@ -98,8 +98,8 @@ GameStates.makeGame = function( game, shared ) {
     }
 
     function render() {
-            this.add.text(0, 0, "Energy: " + this.energy);
-            this.add.text(0, 20, "Heat: " + this.heat);
+            this.add.text(0, 10, "Energy: " + 'energy');
+            this.add.text(0, 40, "Heat: " + 'heat');
             if (burnButton.isDown){
                 burn(ore);
             }
